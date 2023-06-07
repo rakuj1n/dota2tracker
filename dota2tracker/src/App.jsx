@@ -19,7 +19,6 @@ function App() {
     fetchTeamData()
   },[])
 
-  console.log(teamData)
 
   return (
     <>

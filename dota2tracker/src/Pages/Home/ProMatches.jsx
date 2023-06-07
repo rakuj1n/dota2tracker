@@ -19,7 +19,7 @@ export default function ProMatches(props) {
 
     function idToName(id) {
         let team = props.teamData.find((item) => item.team_id === id)
-        return team.name
+        return team?.name
     }
 
     return (
@@ -28,7 +28,7 @@ export default function ProMatches(props) {
             return (
                 <section>
                     <div>{item.radiant_win ? "Radiant Win" : "Dire Win"}</div>
-                    <div>{idToName(item.radiant_team_id)} {item.radiant_score} : {item.dire_score} {idToName(item.dire_team_id)}</div>
+                    <div>{idToName(item.radiant_team_id) ? idToName(item.radiant_team_id) : "Not in Top 100"} {item.radiant_score} : {item.dire_score} {idToName(item.dire_team_id) ? idToName(item.dire_team_id) : "Not in Top 100"}</div>
                     <div>{item.duration}</div>
                     <div>{item.leagueid}</div>
                     <hr/>

@@ -8,7 +8,7 @@ export default function Home() {
     return (
         <>
             <h1>Home Page</h1>
-            <h2>Recent Pro Matches</h2>
+            <h2>Leagues</h2>
             <Leagues />
             <Outlet />
         </>

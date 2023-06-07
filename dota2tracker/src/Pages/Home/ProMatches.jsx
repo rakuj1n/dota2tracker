@@ -30,6 +30,7 @@ export default function ProMatches(props) {
 
     return (
         <>
+        <h2>Matches for {id}</h2>
         {proMatchData && proMatchData.map((item) => {
             return (
                 <section>

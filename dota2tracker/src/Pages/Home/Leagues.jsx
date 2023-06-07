@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import { Link } from "react-router-dom"
 
 export default function Leagues() {
     const [leagues, setLeagues] = useState([])
@@ -22,7 +23,7 @@ export default function Leagues() {
         {leagues && leagues.map((item) => {
             return (
                 <section>
-                    <div>{item.name} || {item.leagueid}</div>
+                    <div><Link to={`/leagues/${item.leagueid}`}>{item.name} || {item.leagueid}</Link></div>
                 </section>
             )
         })}

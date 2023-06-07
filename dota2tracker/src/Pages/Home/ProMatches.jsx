@@ -1,7 +1,7 @@
 import { useState,useEffect } from "react"
 import { useParams } from "react-router-dom"
 
-export default function ProMatches() {
+export default function ProMatches(props) {
     const [proMatchData,setProMatchData] = useState([])
     const {id} = useParams()
 
@@ -15,7 +15,12 @@ export default function ProMatches() {
     useEffect(()=>{
         fetchProMatch(id)
     }
-    ,[])
+    ,[id])
+
+    function idToName(id) {
+        let team = props.teamData.find((item) => item.team_id === id)
+        return team.name
+    }
 
     return (
         <>
@@ -23,7 +28,7 @@ export default function ProMatches() {
             return (
                 <section>
                     <div>{item.radiant_win ? "Radiant Win" : "Dire Win"}</div>
-                    <div>{item.radiant_team_id} {item.radiant_score} : {item.dire_score} {item.dire_team_id}</div>
+                    <div>{idToName(item.radiant_team_id)} {item.radiant_score} : {item.dire_score} {idToName(item.dire_team_id)}</div>
                     <div>{item.duration}</div>
                     <div>{item.leagueid}</div>
                     <hr/>

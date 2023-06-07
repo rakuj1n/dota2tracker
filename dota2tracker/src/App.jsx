@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Link } from 'react-router-dom'
 import Home from './Pages/Home/Home'
 import Meta from './Pages/Meta/Meta'
 import Teams from './Pages/Teams/Teams'
@@ -9,7 +9,11 @@ function App() {
 
   return (
     <>
-    <h1>This is a Navbar with links to home, meta, teams</h1>
+    <nav>
+      <Link to="/">Home</Link>
+      <Link to="/meta">Meta</Link>
+      <Link to="/teams">Teams</Link>
+    </nav>
       <Routes>
         <Route path="/" element={<Home />}/>
         <Route path="/meta" element={<Meta />}/>

@@ -12,6 +12,7 @@ export default function ProMatches(props) {
         setProMatchData(jsonProMatchData)
     }
 
+
     useEffect(()=>{
         fetchProMatch(id)
     }
@@ -22,13 +23,22 @@ export default function ProMatches(props) {
         return team?.name
     }
 
+    function idToPic(id) {
+        let team = props.teamData.find((item) => item.team_id === id)
+        return team?.logo_url
+    }
+
     return (
         <>
         {proMatchData && proMatchData.map((item) => {
             return (
                 <section>
                     <div>{item.radiant_win ? "Radiant Win" : "Dire Win"}</div>
-                    <div>{idToName(item.radiant_team_id) ? idToName(item.radiant_team_id) : "Not in Top 100"} {item.radiant_score} : {item.dire_score} {idToName(item.dire_team_id) ? idToName(item.dire_team_id) : "Not in Top 100"}</div>
+                    <div>
+                        <img width="10%"src={idToPic(item.radiant_team_id)}/>
+                        {idToName(item.radiant_team_id) || item.radiant_team_id} || {item.radiant_score} : {item.dire_score} || {idToName(item.dire_team_id) || item.dire_team_id}
+                        <img width="10%"src={idToPic(item.dire_team_id)}/>
+                    </div>
                     <div>{item.duration}</div>
                     <div>{item.leagueid}</div>
                     <hr/>

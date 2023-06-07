@@ -6,7 +6,9 @@ export default function Leagues() {
     async function fetchLeagues() {
         const response = await fetch(`https://api.opendota.com/api/leagues`)
         const jsonLeagueData = await response.json()
-        setLeagues(jsonLeagueData)
+        setLeagues(jsonLeagueData.filter((item) => {
+            return item.tier === "premium" && item.name !== "adsf" && item.name.includes("2023")
+        }))
     }
 
     useEffect(()=>{
@@ -17,10 +19,10 @@ export default function Leagues() {
 
     return (
         <>
-        {leagues && leagues.map(() => {
+        {leagues && leagues.map((item) => {
             return (
                 <section>
-                    <div></div>
+                    <div>{item.name} || {item.leagueid}</div>
                 </section>
             )
         })}

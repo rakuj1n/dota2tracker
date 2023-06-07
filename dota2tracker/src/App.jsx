@@ -3,6 +3,7 @@ import { Routes, Route, Link } from 'react-router-dom'
 import Home from './Pages/Home/Home'
 import Meta from './Pages/Meta/Meta'
 import Teams from './Pages/Teams/Teams'
+import ProMatches from './Pages/Home/ProMatches'
 
 function App() {
 
@@ -15,7 +16,9 @@ function App() {
       <Link to="/teams">Teams</Link>
     </nav>
       <Routes>
-        <Route path="/" element={<Home />}/>
+        <Route path="/" element={<Home />}>
+          <Route path='/leagues/:id' element={<ProMatches />}/>
+        </Route>
         <Route path="/meta" element={<Meta />}/>
         <Route path="/teams" element={<Teams />}/>
       </Routes>

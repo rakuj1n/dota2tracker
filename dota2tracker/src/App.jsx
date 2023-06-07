@@ -44,7 +44,7 @@ function App() {
         <Route path="/" element={<Home />}>
           <Route path='/leagues/:id' element={<ProMatches teamData={teamData}/>}/>
         </Route>
-        <Route path="/meta" element={<Meta />}/>
+        <Route path="/meta" element={<Meta />}></Route>
         <Route path="/teams" element={<Teams />}/>
       </Routes>
     </>

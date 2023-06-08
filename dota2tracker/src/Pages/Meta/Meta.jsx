@@ -1,78 +1,69 @@
 import { useEffect, useState } from "react"
+import { Outlet, useNavigate } from "react-router-dom"
 
 export default function Meta() {
 
-    const [metaData,setMetaData] = useState([])
-    const [heroData,setHeroData] = useState([])
+    // const [metaData,setMetaData] = useState([])
+    // const [heroData,setHeroData] = useState([])
     const [roleSelected,setRoleSelected] = useState(1)
-    const [list,setList] = useState([])
-
+    const navigate = useNavigate()
 
     function handleSubmit(e) {
         e.preventDefault()
         // take metaData state and reduce it so that all objects with same 
         // hero_id and lane_role combine their wins # and games # into one object
-        let reducedMetaData = metaData.reduce((acc, curr) => {
-            if ((acc.some((x) => (x["hero_id"] === curr["hero_id"] &&
-             x["lane_role"] === curr["lane_role"])))) {
-                let idx = acc.findIndex((x)=> (x["hero_id"] === curr["hero_id"] &&
-                x["lane_role"] === curr["lane_role"]))
-                let newData = {
-                    "hero_id":acc[idx]["hero_id"],
-                    "lane_role":acc[idx]["lane_role"],
-                    "games": parseInt(acc[idx]["games"]) + parseInt(curr["games"]),
-                    "wins": parseInt(acc[idx]["wins"]) + parseInt(curr["wins"])
-                }
-                acc.splice(idx,1)
-                return [...acc,newData]
-            } else {
-                acc.push(curr)
-                return acc
-            }
-        },[{
-            "hero_id":null,
-            "lane_role":null,
-            "games":"",
-            "wins":""
-        }])
-
-        let filteredList = reducedMetaData.filter((item)=>{ 
-            return item.lane_role == roleSelected
-        })
-        setList(filteredList)
+        navigate(`/meta/${roleSelected}`)
+        // let filteredList = reducedMetaData.filter((item)=>{ 
+        //     return item.lane_role == roleSelected
+        // })
+        // setList(filteredList)
     }
 
     function handleChange(e) {
         setRoleSelected(e.target.value)
     }
 
-    async function fetchMeta() {
-        const response = await fetch(`https://api.opendota.com/api/scenarios/laneRoles`)
-        const jsonMetaData = await response.json()
-        setMetaData(jsonMetaData)
-    }
+    // async function fetchMeta() {
+    //     const response = await fetch(`https://api.opendota.com/api/scenarios/laneRoles`)
+    //     const jsonMetaData = await response.json()
 
-    async function fetchHero() {
-        const response = await fetch(`https://api.opendota.com/api/heroes`)
-        const jsonMetaData = await response.json()
-        setHeroData(jsonMetaData)
-    }
+    //     let reducedMetaData = jsonMetaData.reduce((acc, curr) => {
+    //         if ((acc.some((x) => (x["hero_id"] === curr["hero_id"] &&
+    //          x["lane_role"] === curr["lane_role"])))) {
+    //             let idx = acc.findIndex((x)=> (x["hero_id"] === curr["hero_id"] &&
+    //             x["lane_role"] === curr["lane_role"]))
+    //             let newData = {
+    //                 "hero_id":acc[idx]["hero_id"],
+    //                 "lane_role":acc[idx]["lane_role"],
+    //                 "games": parseInt(acc[idx]["games"]) + parseInt(curr["games"]),
+    //                 "wins": parseInt(acc[idx]["wins"]) + parseInt(curr["wins"])
+    //             }
+    //             acc.splice(idx,1)
+    //             return [...acc,newData]
+    //         } else {
+    //             acc.push(curr)
+    //             return acc
+    //         }
+    //     },[{
+    //         "hero_id":null,
+    //         "lane_role":null,
+    //         "games":"",
+    //         "wins":""
+    //     }])
 
-    useEffect(() => {
-        fetchMeta()
-        fetchHero()
-    },[])
+    //     setMetaData(reducedMetaData)
+    // }
 
+    // async function fetchHero() {
+    //     const response = await fetch(`https://api.opendota.com/api/heroes`)
+    //     const jsonMetaData = await response.json()
+    //     setHeroData(jsonMetaData)
+    // }
 
-
-    let sortedList = list.sort((a,b) => {
-        return b.wins/b.games - a.wins/a.games
-    })
-
-    function idToHero(heroId) {
-        let hero = heroData.find((item) => item.id === heroId)
-        return hero?.localized_name
-    }
+    // useEffect(() => {
+    //     // fetchMeta()
+    //     fetchHero()
+    // },[])
 
     return (
         <>
@@ -88,15 +79,7 @@ export default function Meta() {
                 </label>
                 <button>Get Meta</button>
             </form>
-            {sortedList && sortedList.map((item) => {
-                return (
-                    <div>
-                        <p>{idToHero(item.hero_id)}  </p>
-                        <p>{item.wins}/{item.games} {Math.round(item.wins/item.games*100)}% winrate</p>
-                        <hr/>
-                    </div>
-                )
-            })}
+            <Outlet />
         </>
     )
 }

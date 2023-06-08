@@ -4,10 +4,11 @@ import Home from './Pages/Home/Home'
 import Meta from './Pages/Meta/Meta'
 import Teams from './Pages/Teams/Teams'
 import ProMatches from './Pages/Home/ProMatches'
+import db from './db'
 
 function App() {
 
-  const [teamData,setTeamData] = useState([])
+  const [teamData,setTeamData] = useState(db)
 
 // https://stackoverflow.com/questions/74730633/how-can-i-fetch-data-from-multiple-pages-using-axios-and-usestate-useeffect
 //   useEffect(() => {

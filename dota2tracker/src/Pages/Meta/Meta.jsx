@@ -10,13 +10,9 @@ export default function Meta() {
 
     function handleSubmit(e) {
         e.preventDefault()
-
-        // ------------------
         // take metaData state and reduce it so that all objects with same 
         // hero_id and lane_role combine their wins # and games # into one object
-        console.log(metaData)
         let reducedMetaData = metaData.reduce((acc, curr) => {
-            console.log(acc)
             if ((acc.some((x) => (x["hero_id"] === curr["hero_id"] &&
              x["lane_role"] === curr["lane_role"])))) {
                 let idx = acc.findIndex((x)=> (x["hero_id"] === curr["hero_id"] &&
@@ -39,11 +35,8 @@ export default function Meta() {
             "games":"",
             "wins":""
         }])
-        console.log(metaData)
 
-        // ------------------
-
-        let filteredList = reducedMetaData.filter((item)=>{ // change this filter to above reduced arr
+        let filteredList = reducedMetaData.filter((item)=>{ 
             return item.lane_role == roleSelected
         })
         setList(filteredList)
@@ -78,7 +71,6 @@ export default function Meta() {
 
     function idToHero(heroId) {
         let hero = heroData.find((item) => item.id === heroId)
-        console.log(hero)
         return hero?.localized_name
     }
 

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { Outlet, useNavigate } from "react-router-dom"
+import searchDictionary from "../../searchDictionary"
 
 export default function Meta() {
 
@@ -23,7 +24,19 @@ export default function Meta() {
 
     function handleSubmitMatchup(e) {
         e.preventDefault()
-        navigate(`/meta/matchups/${data}`)
+        let id = search()
+        navigate(`/meta/matchups/${id}`)
+        // navigate(`/meta/matchups/${data}`)
+    }
+
+    function search() {
+        for (const key in searchDictionary) {
+            const regexPattern = new RegExp(key)
+            if (regexPattern.test(data)) {
+              const value = searchDictionary[key]
+              return value
+            }
+        }
     }
 
     return (
@@ -42,7 +55,7 @@ export default function Meta() {
             </form>
             <form onSubmit={handleSubmitMatchup}>
                 <label>Search a Hero for its matchups: 
-                    <input onChange={handleChangeMatchup} value={data} name="matchup"></input>
+                    <input onChange={handleChangeMatchup} type="" value={data} name="matchup"></input>
                 </label>
                 <button>Get Lane-Hero Winrate</button>
             </form>

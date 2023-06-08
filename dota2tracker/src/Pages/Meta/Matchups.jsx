@@ -21,13 +21,13 @@ export default function Matchups(props) {
 
     return (
         <>
-        <h1>Matchups for Hero {id}</h1>
+        <h1>Matchups for {idToHero(parseInt(id))}</h1>
         {matchUps && matchUps.sort((a,b) => {
             return (b.wins/b.games_played) - (a.wins/a.games_played)
         }).map((item) => {
             return (
                 <div>
-                    <p>{idToHero(item.hero_id)}</p>
+                    <p>Against {idToHero(item.hero_id)}</p>
                     <p>{item.wins}/{item.games_played}, {Math.round(item.wins/item.games_played*100)}% winrate</p>
                     <hr/>
                 </div>

@@ -34,6 +34,8 @@ function App() {
 //     }
 //   },[])
 
+console.log(teamData)
+
   return (
     <>
     <nav>

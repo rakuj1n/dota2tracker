@@ -1,14 +1,18 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import Loading from "../../Loading"
 
 export default function Matchups(props) {
     const {id} = useParams()
     const [matchUps,setMatchUps] = useState([])
+    const [isLoading, setIsLoading] = useState(false)
 
     async function fetchMatchUp() {
+        setIsLoading(true)
         const response = await fetch(`https://api.opendota.com/api/heroes/${id}/matchups`)
         const jsonMatchUpData = await response.json()
         setMatchUps(jsonMatchUpData)
+        setIsLoading(false)
     }
     useEffect(() => {
         fetchMatchUp()
@@ -22,7 +26,8 @@ export default function Matchups(props) {
     return (
         <>
         <h1>Matchups for {idToHero(parseInt(id))}</h1>
-        {matchUps && matchUps.sort((a,b) => {
+        {isLoading && <Loading />}
+        {matchUps && !isLoading && matchUps.sort((a,b) => {
             return (b.wins/b.games_played) - (a.wins/a.games_played)
         }).map((item) => {
             return (

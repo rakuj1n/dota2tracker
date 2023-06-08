@@ -29,10 +29,10 @@ export default function Meta() {
     }
 
     function search() {
-        for (const key in searchDictionary) {
-            const regexPattern = new RegExp(key)
+        for (let key in searchDictionary) {
+            let regexPattern = new RegExp(key)
             if (regexPattern.test(data)) {
-              const value = searchDictionary[key]
+              let value = searchDictionary[key]
               return value
             }
         }

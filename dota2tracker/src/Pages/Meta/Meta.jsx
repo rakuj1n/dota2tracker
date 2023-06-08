@@ -10,7 +10,40 @@ export default function Meta() {
 
     function handleSubmit(e) {
         e.preventDefault()
-        let filteredList = metaData.filter((item)=>{
+
+        // ------------------
+        // take metaData state and reduce it so that all objects with same 
+        // hero_id and lane_role combine their wins # and games # into one object
+        console.log(metaData)
+        let reducedMetaData = metaData.reduce((acc, curr) => {
+            console.log(acc)
+            if ((acc.some((x) => (x["hero_id"] === curr["hero_id"] &&
+             x["lane_role"] === curr["lane_role"])))) {
+                let idx = acc.findIndex((x)=> (x["hero_id"] === curr["hero_id"] &&
+                x["lane_role"] === curr["lane_role"]))
+                let newData = {
+                    "hero_id":acc[idx]["hero_id"],
+                    "lane_role":acc[idx]["lane_role"],
+                    "games": parseInt(acc[idx]["games"]) + parseInt(curr["games"]),
+                    "wins": parseInt(acc[idx]["wins"]) + parseInt(curr["wins"])
+                }
+                acc.splice(idx,1)
+                return [...acc,newData]
+            } else {
+                acc.push(curr)
+                return acc
+            }
+        },[{
+            "hero_id":null,
+            "lane_role":null,
+            "games":"",
+            "wins":""
+        }])
+        console.log(metaData)
+
+        // ------------------
+
+        let filteredList = reducedMetaData.filter((item)=>{ // change this filter to above reduced arr
             return item.lane_role == roleSelected
         })
         setList(filteredList)
@@ -36,6 +69,8 @@ export default function Meta() {
         fetchMeta()
         fetchHero()
     },[])
+
+
 
     let sortedList = list.sort((a,b) => {
         return b.wins/b.games - a.wins/a.games
@@ -66,7 +101,6 @@ export default function Meta() {
                     <div>
                         <p>{idToHero(item.hero_id)}  </p>
                         <p>{item.wins}/{item.games} {Math.round(item.wins/item.games*100)}% winrate</p>
-                        <p>Game Length Category:{item.time}</p>
                         <hr/>
                     </div>
                 )

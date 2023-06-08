@@ -6,6 +6,7 @@ import Teams from './Pages/Teams/Teams'
 import ProMatches from './Pages/Home/ProMatches'
 import db from './db'
 import Winrate from './Pages/Meta/Winrate'
+import Matchups from './Pages/Meta/Matchups'
 
 function App() {
 
@@ -69,6 +70,7 @@ useEffect(() => {
         </Route>
         <Route path="/meta" element={<Meta />}>
           <Route path='/meta/:role' element={<Winrate heroData={heroData} metaData={metaData}/>}/>
+          <Route path='/meta/matchups/:id' element={<Matchups heroData={heroData} />}/>
         </Route>
         <Route path="/teams" element={<Teams />}/>
       </Routes>

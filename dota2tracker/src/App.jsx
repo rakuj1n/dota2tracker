@@ -12,11 +12,13 @@ function App() {
 
 const [teamData,setTeamData] = useState(db)
 const [metaData,setMetaData] = useState([])
+const [heroData,setHeroData] = useState([])
 
 async function fetchMeta() {
   const response = await fetch(`https://api.opendota.com/api/scenarios/laneRoles`)
   const jsonMetaData = await response.json()
-
+  // take metaData state and reduce it so that all objects with same 
+  // hero_id and lane_role combine their wins # and games # into one object
   let reducedMetaData = jsonMetaData.reduce((acc, curr) => {
       if ((acc.some((x) => (x["hero_id"] === curr["hero_id"] &&
        x["lane_role"] === curr["lane_role"])))) {
@@ -43,8 +45,6 @@ async function fetchMeta() {
 
   setMetaData(reducedMetaData)
 }
-
-const [heroData,setHeroData] = useState([])
 
 async function fetchHero() {
   const response = await fetch(`https://api.opendota.com/api/heroes`)

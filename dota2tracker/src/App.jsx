@@ -7,6 +7,7 @@ import ProMatches from './Pages/Home/ProMatches'
 import db from './db'
 import Winrate from './Pages/Meta/Winrate'
 import Matchups from './Pages/Meta/Matchups'
+import NotFound from './Pages/Meta/NotFound'
 
 function App() {
 
@@ -71,6 +72,7 @@ useEffect(() => {
         <Route path="/meta" element={<Meta />}>
           <Route path='/meta/:role' element={<Winrate heroData={heroData} metaData={metaData}/>}/>
           <Route path='/meta/matchups/:id' element={<Matchups heroData={heroData} />}/>
+          <Route path='/meta/matchups/NotFound' element={<NotFound />}/>
         </Route>
         <Route path="/teams" element={<Teams />}/>
       </Routes>

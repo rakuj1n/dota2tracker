@@ -1,4 +1,4 @@
-import { FixedSizeList as List } from 'react-window';
+import { FixedSizeList as List } from 'react-window'
 
 export default function SideList() {
 
@@ -20,6 +20,7 @@ export default function SideList() {
                 itemSize={35}
                 width={700}
             >
+                
                 {Row}
             </List>
         </>

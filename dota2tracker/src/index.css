@@ -37,6 +37,8 @@ h1 {
   vertical-align: center;
 }
 
+
+
 .ant-carousel .slick-prev,
 .ant-carousel .slick-prev:hover,
 .ant-carousel .slick-prev:focus {
@@ -54,6 +56,7 @@ h1 {
   z-index: 2;
   color: blueviolet;
 }
+
 
 
 /* --------------------------- https://loading.io/css/*/

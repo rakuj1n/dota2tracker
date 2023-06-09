@@ -2,6 +2,7 @@ import { Carousel } from 'antd';
 import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import Loading from '../../Loading';
+import {LeftOutlined,RightOutlined} from '@ant-design/icons'
 
 
 export default function LeagueSlider() {
@@ -31,20 +32,19 @@ export default function LeagueSlider() {
     textAlign: 'center',
     background: '#E8AA42',
     fontSize: '2rem',
-    fontWeight: '500',
     margin: 'auto 5px',
     borderRadius: '25px',
-    padding: '2%',
-    paddingTop: '3%',
-    // padding: '0 2%',
-    // display: 'flex',
-    // justifyContent: 'center',
-    // alignItems: 'center',
+    // padding: '2%',
+    // paddingTop: '3%',
+    padding: '0 2%',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
   };
 
   return (
   <>
-    {isLoading ? <Loading /> : <Carousel autoplay >
+    {isLoading ? <Loading /> : <Carousel autoplay dots={false} arrows={true} prevArrow={<LeftOutlined />} nextArrow={<RightOutlined />}>
       {leagues && leagues.map((item) => {
             return (
                     <div><div style={contentStyle}><Link className="leaguelink" to={`/leagues/${item.leagueid}`}>{item.name}</Link></div></div>

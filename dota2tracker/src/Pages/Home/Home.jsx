@@ -1,5 +1,7 @@
-import Leagues from "./Leagues"
+// import Leagues from "./Leagues"
 import { Outlet } from "react-router-dom"
+import LeagueSlider from './LeagueSlider'
+
 
 export default function Home() {
 
@@ -7,7 +9,8 @@ export default function Home() {
         <>
             <h1>Home Page</h1>
             <h2>Leagues</h2>
-            <Leagues />
+            <LeagueSlider />
+            {/* <Leagues /> */}
             <Outlet />
         </>
     )

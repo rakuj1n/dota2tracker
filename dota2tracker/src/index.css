@@ -23,8 +23,10 @@ h2 {
   text-align: center;
 }
 
-.listrow {
-  text-align: center;
+.winratelist {
+  overflow:auto;
+  max-height: 500px;
+  padding: 0 10px;
 }
 
 /* ----scrollbar---- */
@@ -52,7 +54,8 @@ h2 {
 
 ::-webkit-scrollbar-track-piece {
   /* not handle on */
-  background: #304158;
+  /* background: #304158; */
+  background: #27374D;
 }
 /* ----scrollbar---- */
 

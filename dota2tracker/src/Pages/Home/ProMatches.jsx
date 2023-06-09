@@ -51,6 +51,7 @@ export default function ProMatches(props) {
         <>
         <h2 className="header">Matches played</h2>
         {isLoading && <Loading />}
+        <div className="winratelist">
         {!isLoading && proMatchData && <Card type='inner' headStyle={{color:'#DDE6ED',backgroundColor:"#526D82"}}title={`League: ${idToLeagueName(id)}`}>
             {proMatchData.map((item) => {
                 return (
@@ -67,6 +68,7 @@ export default function ProMatches(props) {
                 )
             })}
         </Card>}
+        </div>
         </>
     )
 }

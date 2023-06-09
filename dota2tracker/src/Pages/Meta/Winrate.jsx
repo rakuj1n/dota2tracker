@@ -27,6 +27,7 @@ export default function Winrate(props) {
     return(
         <>
         <h2>Winrates for Position {role}</h2>
+        <div className="winratelist">
         {list && list.map((item) => {
             return (
                 <div>
@@ -36,6 +37,7 @@ export default function Winrate(props) {
                 </div>
             )
         })}
+        </div>
         </>
     )
 }

@@ -25,7 +25,7 @@ export default function Matchups(props) {
 
     return (
         <>
-        <h1>Matchups for {idToHero(parseInt(id))}</h1>
+        <h2>Matchups for {idToHero(parseInt(id))}</h2>
         {isLoading && <Loading />}
         {matchUps && !isLoading && matchUps.sort((a,b) => {
             return (b.wins/b.games_played) - (a.wins/a.games_played)

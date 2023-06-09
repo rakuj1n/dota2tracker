@@ -67,6 +67,11 @@ label {
   border-radius: 10px;
 }
 
+.notfound {
+  text-align: center;
+  margin: ;
+}
+
 
 /* -----left right arrows on carousel----- */
 .ant-carousel .slick-prev,

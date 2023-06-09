@@ -58,7 +58,7 @@ export default function Meta() {
                     <label>Search a Hero for its matchups: 
                         <input placeholder="enchantress" className='inputfields' onChange={handleChangeMatchup} type="" value={data} name="matchup"></input>
                     </label>
-                    <Button htmlType="submit" ghost>Get Lane-Hero Winrate</Button>
+                    <Button htmlType="submit" ghost>Get Hero Matchups</Button>
                 </form>
             </div>
             <Outlet />

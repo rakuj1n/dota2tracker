@@ -27,10 +27,12 @@ export default function LeagueSlider() {
 
   const contentStyle= {
     height: '160px',
-    color: '#025464',
+    // color: '#025464',
+    color: '#DDE6ED',
     lineHeight: '',
     textAlign: 'center',
-    background: '#E8AA42',
+    // background: '#E8AA42',
+    background: '#526D82', 
     fontSize: '2rem',
     margin: 'auto 5px',
     borderRadius: '25px',

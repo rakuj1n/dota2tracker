@@ -11,7 +11,8 @@ export default function ProMatches(props) {
     const gridStyle = {
         width: '50%',
         textAlign: 'center',
-        boxShadow:'rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px',
+        // boxShadow:'rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px',
+        boxShadow: 'rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px',
     };
 
 
@@ -46,7 +47,7 @@ export default function ProMatches(props) {
 
     return (
         <>
-        <h2>Matches played</h2>
+        <h2 className="header">Matches played</h2>
         {isLoading && <Loading />}
         {!isLoading && proMatchData && <Card title={`League: ${idToLeagueName(id)}`}>
             {proMatchData.map((item) => {

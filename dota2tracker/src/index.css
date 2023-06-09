@@ -1,15 +1,17 @@
 body {
   width: min(75ch, 100% - 2rem);
   margin-inline: auto;
-  background-color: #025464;
-  color:#F8F1F1;
+  /* background-color: #025464; */
+  background-color: #27374D;
+  /* color:#F8F1F1; */
+  color:white;
   text-decoration: none;
   font-family: 'Roboto', sans-serif;
   padding-top: 1%;
 }
 
 h1 {
-  color: #E57C23;
+  color: #DDE6ED;
   margin: 50px 0;
   text-align: center;
 }
@@ -23,8 +25,12 @@ h1 {
   font-weight: 600;
 }
 
-.leaguelink:hover,.navbar>.link:hover {
-  color:#E57C23;
+.leaguelink:hover {
+  color:#27374D;
+}
+
+.navbar>.link:hover {
+  color:#526D82 ;
 }
 
 .navbar {
@@ -69,9 +75,11 @@ label {
 
 .notfound {
   text-align: center;
-  margin: ;
 }
 
+.header {
+  margin: 35px 0;
+}
 
 /* -----left right arrows on carousel----- */
 .ant-carousel .slick-prev,

@@ -34,7 +34,7 @@ export default function ProMatches(props) {
 
     return (
         <>
-        <h2>Matches for {id}</h2>
+        <h2>Matches played</h2>
         {isLoading && <Loading />}
         {proMatchData && !isLoading && proMatchData.map((item) => {
             return (

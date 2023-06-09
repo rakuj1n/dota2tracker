@@ -14,6 +14,13 @@ function App() {
 const [teamData,setTeamData] = useState(db)
 const [metaData,setMetaData] = useState([])
 const [heroData,setHeroData] = useState([])
+const [leaguesData, setLeaguesData] = useState([])
+
+async function fetchLeagues() {
+    const response = await fetch(`https://api.opendota.com/api/leagues`)
+    const jsonLeagueData = await response.json()
+    setLeaguesData(jsonLeagueData)
+}
 
 async function fetchMeta() {
   const response = await fetch(`https://api.opendota.com/api/scenarios/laneRoles`)
@@ -56,6 +63,7 @@ async function fetchHero() {
 useEffect(() => {
   fetchMeta()
   fetchHero()
+  fetchLeagues()
 },[])
 
   return (
@@ -67,7 +75,7 @@ useEffect(() => {
     </nav>
       <Routes>
         <Route path="/" element={<Home />}>
-          <Route path='/leagues/:id' element={<ProMatches teamData={teamData}/>}/>
+          <Route path='/leagues/:id' element={<ProMatches leaguesData={leaguesData} teamData={teamData}/>}/>
         </Route>
         <Route path="/meta" element={<Meta />}>
           <Route path='/meta/:role' element={<Winrate heroData={heroData} metaData={metaData}/>}/>

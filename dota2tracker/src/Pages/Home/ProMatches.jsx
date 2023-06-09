@@ -1,11 +1,18 @@
 import { useState,useEffect } from "react"
 import { useParams } from "react-router-dom"
 import Loading from "../../Loading"
+import { Card } from 'antd';
 
 export default function ProMatches(props) {
     const [proMatchData,setProMatchData] = useState([])
     const {id} = useParams()
     const [isLoading, setIsLoading] = useState(false)
+
+    const gridStyle = {
+        width: '50%',
+        textAlign: 'center',
+        boxShadow:'rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px',
+    };
 
 
     async function fetchProMatch(id) {
@@ -32,25 +39,31 @@ export default function ProMatches(props) {
         return team?.logo_url
     }
 
+    function idToLeagueName(id) {
+        let league = props.leaguesData.find((item) => item.leagueid === parseInt(id))
+        return league?.name
+    }
+
     return (
         <>
         <h2>Matches played</h2>
         {isLoading && <Loading />}
-        {proMatchData && !isLoading && proMatchData.map((item) => {
-            return (
-                <section>
-                    <div>{item.radiant_win ? "Radiant Win" : "Dire Win"}</div>
-                    <div>
-                        <img width="10%"src={idToPic(item.radiant_team_id)}/>
-                        {idToName(item.radiant_team_id) || item.radiant_team_id} || {item.radiant_score} : {item.dire_score} || {idToName(item.dire_team_id) || item.dire_team_id}
-                        <img width="10%"src={idToPic(item.dire_team_id)}/>
-                    </div>
-                    <div>{item.duration}</div>
-                    <div>{item.leagueid}</div>
-                    <hr/>
-                </section>
-            )
-        })}
+        {!isLoading && proMatchData && <Card title={`League: ${idToLeagueName(id)}`}>
+            {proMatchData.map((item) => {
+                return (
+                    <Card.Grid hoverable={false} style={gridStyle}>
+                        <div style={{fontSize:'1.05rem'}}>{item.radiant_win ? "Radiant Win" : "Dire Win"}</div>
+                        <div>
+                            <img width="10%"src={idToPic(item.radiant_team_id)}/>
+                            <strong>{idToName(item.radiant_team_id) || item.radiant_team_id}</strong> vs <strong>{idToName(item.dire_team_id) || item.dire_team_id}</strong>
+                            <img width="10%"src={idToPic(item.dire_team_id)}/>
+                        </div>
+                        <div>{item.radiant_score} : {item.dire_score}</div>
+                        {/* <div>{item.duration}</div> */}
+                    </Card.Grid>
+                )
+            })}
+        </Card>}
         </>
     )
 }

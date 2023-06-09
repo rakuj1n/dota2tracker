@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Routes, Route, Link } from 'react-router-dom'
 import Home from './Pages/Home/Home'
 import Meta from './Pages/Meta/Meta'
-import Teams from './Pages/Teams/Teams'
+import PersonalTracker from './Pages/Personal Tracker/PersonalTracker'
 import ProMatches from './Pages/Home/ProMatches'
 import db from './db'
 import Winrate from './Pages/Meta/Winrate'
@@ -60,10 +60,10 @@ useEffect(() => {
 
   return (
     <>
-    <nav>
-      <Link to="/">Home</Link>
-      <Link to="/meta">Meta</Link>
-      <Link to="/teams">Teams</Link>
+    <nav className='navbar'>
+      <Link className='link' to="/">Home</Link>
+      <Link className='link' to="/meta">Meta</Link>
+      <Link className='link' to="/personaltracker">Personal Tracker</Link>
     </nav>
       <Routes>
         <Route path="/" element={<Home />}>
@@ -74,7 +74,10 @@ useEffect(() => {
           <Route path='/meta/matchups/:id' element={<Matchups heroData={heroData} />}/>
           <Route path='/meta/matchups/NotFound' element={<NotFound />}/>
         </Route>
-        <Route path="/teams" element={<Teams />}/>
+        <Route path="/personaltracker" element={<PersonalTracker />}>
+
+        </Route>
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </>
   )

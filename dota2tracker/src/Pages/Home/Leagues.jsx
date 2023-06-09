@@ -23,7 +23,7 @@ export default function Leagues() {
         {leagues && leagues.map((item) => {
             return (
                 <section>
-                    <div><Link to={`/leagues/${item.leagueid}`}>{item.name} || {item.leagueid}</Link></div>
+                    <div><Link className="link" to={`/leagues/${item.leagueid}`}>{item.name} || {item.leagueid}</Link></div>
                 </section>
             )
         })}

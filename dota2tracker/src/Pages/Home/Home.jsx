@@ -1,5 +1,3 @@
-import { useState, useEffect } from "react"
-import ProMatches from "./ProMatches"
 import Leagues from "./Leagues"
 import { Outlet } from "react-router-dom"
 

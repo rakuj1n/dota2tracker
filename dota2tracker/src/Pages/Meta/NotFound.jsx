@@ -1,7 +1,7 @@
 export default function NotFound() {
     return (
         <>
-            <p>Hero not found.</p>
+            <p>Page not found.</p>
         </>
     )
 }

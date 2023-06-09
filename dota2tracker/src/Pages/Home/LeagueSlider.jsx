@@ -21,17 +21,25 @@ export default function LeagueSlider() {
 
   const contentStyle= {
     height: '160px',
-    color: '#fff',
-    lineHeight: '160px',
+    color: '#025464',
+    lineHeight: '',
     textAlign: 'center',
     background: '#E8AA42',
+    fontSize: '2rem',
+    fontWeight: '500',
+    margin: 'auto 5px',
+    borderRadius: '25px',
+    padding: '0 2%',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
   };
 
   return (
     <Carousel autoplay>
       {leagues && leagues.map((item) => {
             return (
-                    <div><Link style={contentStyle} className="link" to={`/leagues/${item.leagueid}`}>{item.name} || {item.leagueid}</Link></div>
+                    <div><div style={contentStyle}><Link className="leaguelink" to={`/leagues/${item.leagueid}`}>{item.name}</Link></div></div>
             )
         })}
   </Carousel>

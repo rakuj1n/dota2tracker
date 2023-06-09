@@ -26,6 +26,7 @@ export default function Winrate(props) {
 
     return(
         <>
+        <h1>Winrates for Position {role}</h1>
         {list && list.map((item) => {
             return (
                 <div>

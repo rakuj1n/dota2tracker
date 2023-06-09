@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { Outlet, useNavigate } from "react-router-dom"
 import searchDictionary from "../../searchDictionary"
+import { Button } from 'antd'
 
 export default function Meta() {
 
@@ -40,24 +41,26 @@ export default function Meta() {
 
     return (
         <>
-            <h1>Meta page</h1>
-            <form onSubmit={handleSubmitWinrate}>
-                <label>Select a role position: 
-                    <select onChange={handleChange} value={roleSelected.role} name="role">
-                        <option value={1}>1 (carry)</option>
-                        <option value={2}>2 (mid)</option>
-                        <option value={3}>3 (off)</option>
-                        <option value={4}>4 (jungle)</option>
-                    </select>
-                </label>
-                <button>Get Lane-Hero Winrate</button>
-            </form>
-            <form onSubmit={handleSubmitMatchup}>
-                <label>Search a Hero for its matchups: 
-                    <input onChange={handleChangeMatchup} type="" value={data} name="matchup"></input>
-                </label>
-                <button>Get Lane-Hero Winrate</button>
-            </form>
+            <h1>Meta Finder</h1>
+            <div className="container">
+                <form onSubmit={handleSubmitWinrate}>
+                    <label>Select a role position: <br/>
+                        <select className='inputfields' onChange={handleChange} value={roleSelected.role} name="role">
+                            <option value={1}>1 (carry)</option>
+                            <option value={2}>2 (mid)</option>
+                            <option value={3}>3 (off)</option>
+                            <option value={4}>4 (jungle)</option>
+                        </select>
+                    </label>
+                    <Button htmlType="submit" ghost>Get Lane-Hero Winrate</Button>
+                </form>
+                <form onSubmit={handleSubmitMatchup}>
+                    <label>Search a Hero for its matchups: 
+                        <input placeholder="enchantress" className='inputfields' onChange={handleChangeMatchup} type="" value={data} name="matchup"></input>
+                    </label>
+                    <Button htmlType="submit" ghost>Get Lane-Hero Winrate</Button>
+                </form>
+            </div>
             <Outlet />
         </>
     )

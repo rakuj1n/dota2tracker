@@ -1,7 +1,7 @@
 import { useState,useEffect } from "react"
 import { useParams } from "react-router-dom"
 import Loading from "../../Loading"
-import { Card } from 'antd';
+import { Card } from 'antd'
 
 export default function ProMatches(props) {
     const [proMatchData,setProMatchData] = useState([])
@@ -12,7 +12,9 @@ export default function ProMatches(props) {
         width: '50%',
         textAlign: 'center',
         // boxShadow:'rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px',
-        boxShadow: 'rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px',
+        // boxShadow: 'rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px',
+        color:'#DDE6ED',
+        backgroundColor:"#526D82",
     };
 
 
@@ -49,15 +51,15 @@ export default function ProMatches(props) {
         <>
         <h2 className="header">Matches played</h2>
         {isLoading && <Loading />}
-        {!isLoading && proMatchData && <Card title={`League: ${idToLeagueName(id)}`}>
+        {!isLoading && proMatchData && <Card type='inner' headStyle={{color:'#DDE6ED',backgroundColor:"#526D82"}}title={`League: ${idToLeagueName(id)}`}>
             {proMatchData.map((item) => {
                 return (
                     <Card.Grid hoverable={false} style={gridStyle}>
                         <div style={{fontSize:'1.05rem'}}>{item.radiant_win ? "Radiant Win" : "Dire Win"}</div>
                         <div>
-                            <img width="10%"src={idToPic(item.radiant_team_id)}/>
+                            <img width="15%"src={idToPic(item.radiant_team_id)}/>
                             <strong>{idToName(item.radiant_team_id) || item.radiant_team_id}</strong> vs <strong>{idToName(item.dire_team_id) || item.dire_team_id}</strong>
-                            <img width="10%"src={idToPic(item.dire_team_id)}/>
+                            <img width="15%"src={idToPic(item.dire_team_id)}/>
                         </div>
                         <div>{item.radiant_score} : {item.dire_score}</div>
                         {/* <div>{item.duration}</div> */}

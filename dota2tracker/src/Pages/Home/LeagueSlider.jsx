@@ -38,7 +38,7 @@ export default function LeagueSlider() {
     borderRadius: '25px',
     // padding: '2%',
     // paddingTop: '3%',
-    padding: '0 2%',
+    padding: '0 3%',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',

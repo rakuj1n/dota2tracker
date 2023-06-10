@@ -165,6 +165,7 @@ label {
   /* grid-template-rows: 1fr 1fr; */
   margin:10px 0;
   text-align: center;
+  position:relative;
 }
 
 .outlet {
@@ -178,11 +179,13 @@ label {
   margin-left: 170px;
   color: inherit;
   position: absolute;
+  z-index: 1;
 }
 
 .addbutton {
   color:white;
   scale:1.7;
+  filter: drop-shadow(1px 1px 3px rgba(179, 228, 255, 1));
 }
 
 .addbutton:hover {
@@ -192,6 +195,18 @@ label {
 .space {
   height:40px;
 }
+
+.delete {
+  position:absolute;
+  opacity:0.15;
+  margin-top:7px;
+}
+
+.delete:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
 
 /* -----left right arrows on carousel----- */
 .ant-carousel .slick-prev,

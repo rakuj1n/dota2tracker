@@ -26,6 +26,20 @@ export default function PersonalTracker() {
         fetchSavedData()
     },[])
 
+    function onDelete(id) {
+        async function handleDelete() {
+            const response = await fetch(`https://api.airtable.com/v0/appMTfwuwe3zlOU6o/matches/${id}`,{
+                method: "DELETE",
+                headers: { 
+                    "Authorization": "Bearer keyXONOjTEfPlXn4b"
+                }
+            })
+            const jsonData = await response.json()
+            console.log(jsonData)
+        }
+        handleDelete(id)
+    }
+
 
     return (
         <>
@@ -33,7 +47,7 @@ export default function PersonalTracker() {
             <div className="PTgrid">
                 <div>
                     {isLoading && <Loading />}
-                    {savedDataList && !isLoading && <SavedDataList savedDataList={savedDataList}/>}
+                    {savedDataList && !isLoading && <SavedDataList onDelete={onDelete} savedDataList={savedDataList}/>}
                 </div>
                 <div className="outlet">
                     <Outlet />

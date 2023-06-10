@@ -8,7 +8,7 @@ export default function Create() {
     const [invalid,setInvalid] = useState(false)
     const [createFormData,setCreateFormData] = useState({
         heroplayed: "", 
-        winloss: "win", 
+        winloss: "Win", 
         datetimeplayed: "",
         rolepositionplayed: "1"
     })
@@ -69,8 +69,8 @@ export default function Create() {
                 { invalid && <small style={{color:'red'}}>Please check the entered hero name.</small>}
                 <label>Win/Loss: 
                     <select name='winloss' onChange={handleChange} value={createFormData.winloss}>
-                        <option value={"win"}>Win</option>
-                        <option value={"loss"}>Loss</option>
+                        <option value={"Win"}>Win</option>
+                        <option value={"Loss"}>Loss</option>
                     </select>
                 </label>
                 <label>Date/Time Played: <input name='datetimeplayed' onChange={handleChange} type='datetime-local'></input></label>

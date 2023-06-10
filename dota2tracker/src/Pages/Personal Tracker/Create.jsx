@@ -1,6 +1,7 @@
 import { useState } from "react"
 import searchDictionary from "../../searchDictionary"
 import { useNavigate, useOutletContext } from "react-router-dom"
+import { Button } from "antd"
 
 export default function Create() {
     const fetchSavedData = useOutletContext()
@@ -45,7 +46,7 @@ export default function Create() {
             setInvalid(false)
             postCreate()
             .then(fetchSavedData())
-            navigate(`/personaltracker/graph`)
+            navigate(`/personaltracker`)
         }
         
     }
@@ -62,20 +63,20 @@ export default function Create() {
 
     return (
         <>
-            <form onSubmit={handleSubmitCreate}>
+            <form className='createnewform' onSubmit={handleSubmitCreate}>
                 <h3>Create a New Entry</h3>
-                <label>Hero Played: <input name='heroplayed' onChange={handleChange} value={createFormData.heroplayed} type="text" placeholder="enchantress"></input></label>
+                <label>Hero Played: <input className='newforminput' name='heroplayed' onChange={handleChange} value={createFormData.heroplayed} type="text" placeholder="enchantress"></input></label>
                 { invalid && <small style={{color:'red'}}>Please check the entered hero name.</small>}
                 <label>Win/Loss: 
-                    <select name='winloss' onChange={handleChange} value={createFormData.winloss}>
+                    <select className='newforminput' name='winloss' onChange={handleChange} value={createFormData.winloss}>
                         <option value={"Win"}>Win</option>
                         <option value={"Loss"}>Loss</option>
                     </select>
                 </label>
-                <label>Date/Time Played: <input name='datetimeplayed' onChange={handleChange} type='datetime-local'></input></label>
+                <label>Date/Time Played: <input className='newforminput' name='datetimeplayed' onChange={handleChange} type='datetime-local'></input></label>
                 { invalid && <small style={{color:'red'}}>Please check the entered date and time.</small>}
                 <label>Role Position Played: 
-                    <select value={createFormData.rolepositionplayed} onChange={handleChange} name='rolepositionplayed'>
+                    <select className='newforminput' value={createFormData.rolepositionplayed} onChange={handleChange} name='rolepositionplayed'>
                         <option value={1}>1 (carry)</option>
                         <option value={2}>2 (mid)</option>
                         <option value={3}>3 (off)</option>
@@ -84,7 +85,7 @@ export default function Create() {
                     </select>
                 </label>
 
-                <button>Create</button>
+                <Button className='newentrybutton' htmlType="submit" ghost>Create New Entry</Button>
             </form>
         </>
     )

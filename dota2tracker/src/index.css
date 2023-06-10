@@ -205,7 +205,7 @@ label {
 .delete {
   position:absolute;
   opacity:0.15;
-  margin-top:7px;
+  margin-top:10px;
 }
 
 .delete:hover {

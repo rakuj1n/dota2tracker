@@ -1,10 +1,9 @@
 import { useState } from "react"
 import searchDictionary from "../../searchDictionary"
-import DatePicker from 'react-datepicker'
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useOutletContext } from "react-router-dom"
 
 export default function Create() {
-
+    const fetchSavedData = useOutletContext()
     const [invalid,setInvalid] = useState(false)
     const [createFormData,setCreateFormData] = useState({
         heroplayed: "", 
@@ -46,6 +45,7 @@ export default function Create() {
         } else {
             setInvalid(false)
             postCreate()
+            .then(fetchSavedData())
             navigate(`/personaltracker/graph`)
         }
         

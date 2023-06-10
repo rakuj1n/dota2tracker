@@ -38,8 +38,14 @@ export default function PersonalTracker() {
             console.log(jsonData)
         }
         handleDelete(id)
+        
+        //re-render
+        setSavedDataList(prev => { 
+            return {"records":(prev.records.filter((item) => {return item.id != id}))}
+            }
+        )
+        
     }
-
 
     return (
         <>
@@ -50,7 +56,7 @@ export default function PersonalTracker() {
                     {savedDataList && !isLoading && <SavedDataList onDelete={onDelete} savedDataList={savedDataList}/>}
                 </div>
                 <div className="outlet">
-                    <Outlet />
+                    <Outlet context={fetchSavedData}/>
                 </div>
             </div>
         </>

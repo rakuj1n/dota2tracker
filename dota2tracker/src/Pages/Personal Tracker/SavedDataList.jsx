@@ -14,9 +14,10 @@ export default function SavedDataList(props) {
         <div className="saveddatalistbox">
             <div className="adddiv"><Link to='/personaltracker/create'><PlusCircleOutlined className="addbutton"/></Link></div>
             <div className="space"></div>
+            {console.log(props.savedDataList)}
             {props.savedDataList && props.savedDataList.records.map((item) => {
                 return (
-                    <>
+                    <> 
                         <div className="saveddatalistitem" id={item.id}>
                             <div className="item1">{capitalise(item.fields.heroplayed)}</div>
                             <div className='item2'styles={{textAlign:'right'}}>{item.fields.winloss}</div>

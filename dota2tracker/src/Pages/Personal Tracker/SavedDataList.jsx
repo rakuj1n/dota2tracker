@@ -1,4 +1,4 @@
-import { PlusOutlined, PlusSquareOutlined } from "@ant-design/icons"
+import { PlusCircleOutlined, PlusOutlined, PlusSquareOutlined } from "@ant-design/icons"
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 
@@ -12,7 +12,8 @@ export default function SavedDataList(props) {
     
     return (
         <div className="saveddatalistbox">
-            <div className="adddiv"><Link to='/personaltracker/create'><PlusSquareOutlined className="addbutton"/></Link></div>
+            <div className="adddiv"><Link to='/personaltracker/create'><PlusCircleOutlined className="addbutton"/></Link></div>
+            <div className="space"></div>
             {props.savedDataList && props.savedDataList.records.map((item) => {
                 return (
                     <>

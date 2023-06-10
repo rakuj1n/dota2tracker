@@ -172,15 +172,25 @@ label {
 }
 
 .adddiv {
-  margin-right:20px;
-  margin-bottom: 10px;
-  margin-top: 10px;
+  /* margin-right:20px; */
+  /* margin-bottom: 10px; */
+  margin-top: 15px;
+  margin-left: 170px;
   color: inherit;
   position: absolute;
 }
 
 .addbutton {
   color:white;
+  scale:1.7;
+}
+
+.addbutton:hover {
+  color:#526D82
+}
+
+.space {
+  height:40px;
 }
 
 /* -----left right arrows on carousel----- */

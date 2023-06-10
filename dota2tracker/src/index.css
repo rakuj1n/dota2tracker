@@ -227,6 +227,13 @@ label {
   border-radius: 10px;
 }
 
+.graph {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left:-40px;
+}
+
 /* -----left right arrows on carousel----- */
 .ant-carousel .slick-prev,
 .ant-carousel .slick-prev:hover,

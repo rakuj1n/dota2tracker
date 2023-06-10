@@ -42,6 +42,9 @@ export default function LeagueSlider() {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundImage: "url('/../public/dota2_social.png')",
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat'
   };
 
   return (

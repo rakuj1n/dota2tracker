@@ -12,7 +12,8 @@ body {
 
 h1 {
   color: #DDE6ED;
-  margin: 50px 0;
+  /* margin: 50px 0; */
+  margin-bottom: 50px;
   text-align: center;
   font-size: 3.5rem;
 }
@@ -64,7 +65,7 @@ h2 {
 }
 
 .leaguelink:hover {
-  color:#27374D;
+  color:#939698;
 }
 
 .navbar>.link:hover {
@@ -72,6 +73,7 @@ h2 {
 }
 
 .navbar {
+  margin-bottom: 50px;
   display: flex;
   justify-content: space-evenly;
 }

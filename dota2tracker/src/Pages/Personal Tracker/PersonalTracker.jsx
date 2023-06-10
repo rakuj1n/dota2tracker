@@ -11,7 +11,7 @@ export default function PersonalTracker() {
 
     async function fetchSavedData() {
         setIsLoading(true)
-        const response = await fetch(`https://api.airtable.com/v0/appMTfwuwe3zlOU6o/matches?maxRecords=20&view=Grid%20view`,{
+        const response = await fetch(`https://api.airtable.com/v0/appMTfwuwe3zlOU6o/matches?sort%5B0%5D%5Bfield%5D=datetimeplayed&sort%5B0%5D%5Bdirection%5D=desc`,{
             headers: { 
                 "Content-type": "application/json",
                 "Authorization": "Bearer keyXONOjTEfPlXn4b"

@@ -31,29 +31,24 @@ h2 {
 
 /* ----scrollbar---- */
 ::-webkit-scrollbar {
-  /* width */
   width: 5px;
 }
 
 ::-webkit-scrollbar-track {
-  /* Track */
   box-shadow: inset 0 0 5px grey;
   border-radius: 8px;
 }
 
 ::-webkit-scrollbar-thumb {
-  /* Handle */
   background: rgb(110, 110, 110);
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  /* Handle on hover */
   background: rgb(110, 110, 110);
 }
 
 ::-webkit-scrollbar-track-piece {
-  /* not handle on */
   /* background: #304158; */
   background: #27374D;
 }
@@ -131,7 +126,7 @@ label {
   font-size: inherit;
   left: 10px;
   z-index: 2;
-  color: blueviolet;
+  color: #DDE6ED;
 }
 
 .ant-carousel .slick-next,
@@ -140,12 +135,12 @@ label {
   font-size: inherit;
   right: 10px;
   z-index: 2;
-  color: blueviolet;
+  color: #DDE6ED;
 }
 /* -----left right arrows on carousel----- */
 
 
-/* --------------------------- https://loading.io/css/*/
+/* --------------------------- https://loading.io/css/----------------------------*/
 .loader {
   text-align: center;
 }
@@ -205,4 +200,4 @@ label {
     transform: translate(24px, 0);
   }
 }
-/* --------------------------- */
+/* --------------------------- https://loading.io/css/----------------------------*/

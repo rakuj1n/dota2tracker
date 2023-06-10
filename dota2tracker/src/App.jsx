@@ -8,6 +8,9 @@ import db from './db'
 import Winrate from './Pages/Meta/Winrate'
 import Matchups from './Pages/Meta/Matchups'
 import NotFound from './Pages/Meta/NotFound'
+import Create from './Pages/Personal Tracker/Create'
+import Graph from './Pages/Personal Tracker/Graph'
+import Edit from './Pages/Personal Tracker/Edit'
 
 function App() {
 
@@ -83,7 +86,9 @@ useEffect(() => {
           <Route path='/meta/matchups/NotFound' element={<NotFound />}/>
         </Route>
         <Route path="/personaltracker" element={<PersonalTracker />}>
-
+          <Route path='/personaltracker/create' element={<Create />}/>
+          <Route path='/personaltracker/edit/:id' element={<Edit />}/>
+          <Route path='/personaltracker/graph' element={<Graph />}/>
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>

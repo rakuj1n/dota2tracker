@@ -119,6 +119,11 @@ label {
   margin: 35px 0;
 }
 
+.saveddatalistitem {
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
 /* -----left right arrows on carousel----- */
 .ant-carousel .slick-prev,
 .ant-carousel .slick-prev:hover,

@@ -1,6 +1,7 @@
 import { useState } from "react"
 import searchDictionary from "../../searchDictionary"
 import DatePicker from 'react-datepicker'
+import { useNavigate } from "react-router-dom"
 
 export default function Create() {
 
@@ -34,6 +35,8 @@ export default function Create() {
         console.log(jsonData)
     }
 
+    const navigate = useNavigate()
+
     function handleSubmitCreate(e) {
         e.preventDefault()
         let id = search()
@@ -43,6 +46,7 @@ export default function Create() {
         } else {
             setInvalid(false)
             postCreate()
+            navigate(`/personaltracker/graph`)
         }
         
     }

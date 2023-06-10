@@ -31,7 +31,6 @@ export default function Create() {
             body: JSON.stringify({"records":[{"fields":createFormData}]}) 
         })
         const jsonData = await response.json()
-        console.log(jsonData)
     }
 
     const navigate = useNavigate()

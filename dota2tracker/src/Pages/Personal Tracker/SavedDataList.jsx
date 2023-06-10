@@ -15,6 +15,7 @@ export default function SavedDataList(props) {
             <div className="adddiv"><Link to='/personaltracker/create'><PlusCircleOutlined className="addbutton"/></Link></div>
             <div className="space"></div>
             {console.log(props.savedDataList)}
+            { props.savedDataList.records.length == 0 ? <p className="noitems">No items</p> : null}
             {props.savedDataList && props.savedDataList.records.map((item) => {
                 return (
                     <> 

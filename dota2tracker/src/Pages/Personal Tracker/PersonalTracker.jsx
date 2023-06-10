@@ -18,6 +18,7 @@ export default function PersonalTracker() {
             }
         })
         const jsonSavedData = await response.json()
+        console.log("fetching", jsonSavedData)
         setSavedDataList(jsonSavedData)
         setIsLoading(false)
     }

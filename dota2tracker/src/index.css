@@ -207,6 +207,9 @@ label {
   cursor: pointer;
 }
 
+.noitems {
+  text-align: center;
+}
 
 /* -----left right arrows on carousel----- */
 .ant-carousel .slick-prev,

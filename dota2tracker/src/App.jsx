@@ -82,7 +82,7 @@ useEffect(() => {
     <nav className='navbar'>
       <Link className='link' to="/">Home</Link>
       <Link className='link' to="/meta">Meta</Link>
-      <Link className='link' to="/personaltracker">Personal Tracker</Link>
+      <Link className='link' to="/personaltracker/graph">Personal Tracker</Link>
     </nav>
       <Routes>
         <Route path="/" element={<Home />}>

@@ -46,7 +46,7 @@ export default function Create() {
             setInvalid(false)
             postCreate()
             .then(fetchSavedData())
-            navigate(`/personaltracker`)
+            navigate(`/personaltracker/graph`)
         }
         
     }

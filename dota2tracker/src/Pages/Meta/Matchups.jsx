@@ -23,19 +23,24 @@ export default function Matchups(props) {
         return hero?.localized_name
     }
 
+    function idToImg(heroId) {
+        let hero = props.heroImgData[heroId]
+        return hero?.img 
+    }
+
     return (
         <>
-        <h2>Matchups for {idToHero(parseInt(id))}</h2>
+        <h2>Matchups for <span className="spanmatchup">{idToHero(parseInt(id))}</span> </h2>
         {isLoading && <Loading />}
         <div className="winratelist">
         {matchUps && !isLoading && matchUps.sort((a,b) => {
             return (b.wins/b.games_played) - (a.wins/a.games_played)
         }).map((item) => {
             return (
-                <div>
-                    <p>Against {idToHero(item.hero_id)}</p>
-                    <p>{item.wins}/{item.games_played}, {Math.round(item.wins/item.games_played*100)}% winrate</p>
-                    <hr/>
+                <div className="matchuplistitem">
+                    <img src={`https://cdn.dota2.com/${idToImg(parseInt(item.hero_id))}`} />
+                    <p>Against <strong>{idToHero(item.hero_id)}</strong>  </p>
+                    <p>{item.wins}/{item.games_played} wins, <strong>{Math.round(item.wins/item.games_played*100)}% winrate</strong></p>
                 </div>
             )
         })}

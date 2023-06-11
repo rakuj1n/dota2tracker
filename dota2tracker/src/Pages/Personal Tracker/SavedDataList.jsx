@@ -9,7 +9,7 @@ export default function SavedDataList(props) {
         let result = [a.toUpperCase(),...rest]
         return result.join('')
     }
-    
+
     return (
         <div className="saveddatalistbox">
             <div className="adddiv"><Link to='/personaltracker/create'><PlusCircleOutlined className="addbutton"/></Link></div>
@@ -21,7 +21,7 @@ export default function SavedDataList(props) {
                     <> 
                         <div className="saveddatalistitem" id={item.id}>
                             <div className="item1">{capitalise(item.fields.heroplayed)}</div>
-                            <div className='item2'styles={{textAlign:'right'}}>{item.fields.winloss}</div>
+                            <div className='item2'style={{color: (item.fields.winloss === "Win") ? '#77DD77' : '#ff6961'}}>{item.fields.winloss}</div>
                             <div className="item3">Pos: {item.fields.rolepositionplayed}</div>
                             {/* <div>Date: {item.fields.datetimeplayed.slice(0,10)}</div> */}
                             <div className="delete"><DeleteOutlined onClick={()=>props.onDelete(item.id)}/></div>

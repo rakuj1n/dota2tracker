@@ -18,6 +18,7 @@ const [teamData,setTeamData] = useState(db)
 const [metaData,setMetaData] = useState([])
 const [heroData,setHeroData] = useState([])
 const [leaguesData, setLeaguesData] = useState([])
+const [heroImgData, setHeroImgData] = useState({})
 
 async function fetchLeagues() {
     const response = await fetch(`https://api.opendota.com/api/leagues`)
@@ -63,10 +64,17 @@ async function fetchHero() {
   setHeroData(jsonMetaData)
 }
 
+async function fetchHeroImg() {
+  const response = await fetch(`https://api.opendota.com/api/constants/heroes`)
+  const jsonHeroImgData = await response.json()
+  setHeroImgData(jsonHeroImgData)
+}
+
 useEffect(() => {
   fetchMeta()
   fetchHero()
   fetchLeagues()
+  fetchHeroImg()
 },[])
 
   return (
@@ -81,8 +89,8 @@ useEffect(() => {
           <Route path='/leagues/:id' element={<ProMatches leaguesData={leaguesData} teamData={teamData}/>}/>
         </Route>
         <Route path="/meta" element={<Meta />}>
-          <Route path='/meta/:role' element={<Winrate heroData={heroData} metaData={metaData}/>}/>
-          <Route path='/meta/matchups/:id' element={<Matchups heroData={heroData} />}/>
+          <Route path='/meta/:role' element={<Winrate heroData={heroData} metaData={metaData} heroImgData={heroImgData}/>}/>
+          <Route path='/meta/matchups/:id' element={<Matchups heroImgData={heroImgData} heroData={heroData} />}/>
           <Route path='/meta/matchups/NotFound' element={<NotFound />}/>
         </Route>
         <Route path="/personaltracker" element={<PersonalTracker />}>

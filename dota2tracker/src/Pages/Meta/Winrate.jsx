@@ -24,16 +24,21 @@ export default function Winrate(props) {
         setList(sortedList)
     },[role,props.metaData])
 
+    function idToImg(heroId) {
+        let hero = props.heroImgData[heroId]
+        return hero?.img 
+    }
+
     return(
         <>
-        <h2>Winrates for Position {role}</h2>
+        <h2>Winrates for <span className="spanwinrate">Position {role}</span></h2>
         <div className="winratelist">
         {list && list.map((item) => {
             return (
-                <div>
-                    <p>{idToHero(item.hero_id)}  </p>
-                    <p>{item.wins}/{item.games} {Math.round(item.wins/item.games*100)}% winrate</p>
-                    <hr/>
+                <div className="winratelistitem">
+                    <img src={`https://cdn.dota2.com/${idToImg(parseInt(item.hero_id))}`} />
+                    <p><strong>{idToHero(item.hero_id)}</strong>  </p>
+                    <p>{item.wins}/{item.games} wins, <strong>{Math.round(item.wins/item.games*100)}% winrate</strong></p>
                 </div>
             )
         })}

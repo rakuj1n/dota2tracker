@@ -234,6 +234,44 @@ label {
   margin-left:-40px;
 }
 
+.matchuplistitem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #526D82;
+  padding: 0 5%;
+  margin: 0.85%;
+  border-radius: 13px;
+}
+
+.matchuplistitem > img {
+  width: 12%;
+  border-radius: 5px;
+}
+
+.spanmatchup {
+  color:rgb(255, 255, 180)
+}
+
+.winratelistitem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #526D82;
+  padding: 0 5%;
+  margin: 0.85%;
+  border-radius: 13px;
+}
+
+.winratelistitem > img {
+  width: 12%;
+  border-radius: 5px;
+}
+
+.spanwinrate {
+  color:rgb(255, 255, 180)
+}
+
 /* -----left right arrows on carousel----- */
 .ant-carousel .slick-prev,
 .ant-carousel .slick-prev:hover,

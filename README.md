@@ -10,13 +10,13 @@ A tracking application for dota 2's Esports scene
 # Wireframes
 
 # Technologies Used
-HTML, CSS and Javascript
-React
+* HTML, CSS and Javascript
+* React
 
 # APIs Used
-https://ant.design/components/overview
-https://recharts.org/en-US/
-https://airtable.com/
+* https://ant.design/components/overview
+* https://recharts.org/en-US/
+* https://airtable.com/
 
 # Getting Started
 Visit https://dota2tracker.vercel.app/ and start using the features straight away!

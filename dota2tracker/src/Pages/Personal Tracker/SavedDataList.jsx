@@ -1,5 +1,4 @@
 import { DeleteOutlined, PlusCircleOutlined, PlusOutlined, PlusSquareOutlined } from "@ant-design/icons"
-import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 
 export default function SavedDataList(props) {

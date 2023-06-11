@@ -4,7 +4,7 @@ import { useNavigate, useOutletContext } from "react-router-dom"
 import { Button } from "antd"
 
 export default function Create() {
-    const fetchSavedData = useOutletContext()
+    const {fetchSavedData} = useOutletContext()
     const [invalid,setInvalid] = useState(false)
     const [createFormData,setCreateFormData] = useState({
         heroplayed: "", 
@@ -32,6 +32,7 @@ export default function Create() {
             body: JSON.stringify({"records":[{"fields":createFormData}]}) 
         })
         const jsonData = await response.json()
+        fetchSavedData()
     }
 
     const navigate = useNavigate()
@@ -45,7 +46,7 @@ export default function Create() {
         } else {
             setInvalid(false)
             postCreate()
-            .then(fetchSavedData())
+            // .then(fetchSavedData())
             navigate(`/personaltracker/graph`)
         }
         

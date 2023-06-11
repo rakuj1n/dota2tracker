@@ -8,6 +8,7 @@ export default function PersonalTracker() {
 
     const [savedDataList,setSavedDataList] = useState()
     const [isLoading,setIsLoading] = useState(false)
+    const [trigger,setTrigger] = useState(false)
 
     async function fetchSavedData() {
         setIsLoading(true)
@@ -40,11 +41,14 @@ export default function PersonalTracker() {
         }
         handleDelete(id)
         
-        //re-render
+        //visual re-render
         setSavedDataList(prev => { 
             return {"records":(prev.records.filter((item) => {return item.id != id}))}
             }
         )
+
+        //graph trigger re-render
+        setTrigger(prev => !prev)
         
     }
 
@@ -57,7 +61,7 @@ export default function PersonalTracker() {
                     {savedDataList && !isLoading && <SavedDataList onDelete={onDelete} savedDataList={savedDataList}/>}
                 </div>
                 <div className="outlet">
-                    <Outlet context={fetchSavedData}/>
+                    <Outlet context={{fetchSavedData, trigger}}/>
                 </div>
             </div>
         </>

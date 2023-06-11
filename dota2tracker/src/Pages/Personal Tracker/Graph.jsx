@@ -1,15 +1,16 @@
 import { useEffect, useState } from 'react'
 import { BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar } from 'recharts'
+import { useOutletContext } from "react-router-dom"
 import Loading from '../../Loading'
 
 
 
 export default function Graph() {
-
+    const {trigger} = useOutletContext()
     const [savedDataList,setSavedDataList] = useState()
     const [isLoading,setIsLoading] = useState(false)
 
-    const [win,setWin] = useState(0)
+    const [win, setWin] = useState(0)
     const [loss, setLoss] = useState(0)
 
     async function fetchSavedData() {
@@ -28,7 +29,7 @@ export default function Graph() {
 
     useEffect(()=>{
         fetchSavedData()
-    },[])
+    },[trigger])
 
     useEffect(() => {
         setWin(winLossReducer(savedDataList ? savedDataList : {records: []})[0]) 
@@ -51,11 +52,12 @@ export default function Graph() {
         <div className='graph'> 
         {isLoading && <Loading />}
         {!isLoading &&
-            <BarChart margin={{top: 0, right:0,bottom:0,left:0}} width={300} height={250} data={[{"name":"Wins","pv":win ? win : 0},{"name":"Losses","pv":loss ? loss : 0}]}>
+            <BarChart margin={{top: 0, right:0,bottom:0,left:0}} width={300} height={250} data={[{"name":"Wins","No. of Games":win ? win : 0},{"name":"Losses","No. of Games":loss ? loss : 0}]}>
             <CartesianGrid horizontal={false} vertical={false} />
             <XAxis tick={{ fill: '#DDE6ED' }} dataKey="name" />
             <YAxis tick={{ fill: '#DDE6ED' }}/>
-            <Bar dataKey="pv" fill="#9DB2BF" />
+            <Tooltip />
+            <Bar dataKey="No. of Games" fill="#9DB2BF" />
         </BarChart>}
         </div>
     )

@@ -56,11 +56,11 @@ export default function ProMatches(props) {
             {proMatchData.map((item) => {
                 return (
                     <Card.Grid hoverable={false} style={gridStyle}>
-                        <div style={{fontSize:'1.05rem'}}>{item.radiant_win ? "Radiant Win" : "Dire Win"}</div>
+                        <div className='matchitem' style={{fontSize:'1.05rem'}}><img width="15%"src={idToPic(item.radiant_team_id)}/>  {item.radiant_win ? <span className="spanmatchwinner"><strong>Radiant</strong> Win</span> : <span className="spanmatchwinner"><strong>Dire</strong> Win</span>}  <img width="15%"src={idToPic(item.dire_team_id)}/></div>
                         <div>
-                            <img width="15%"src={idToPic(item.radiant_team_id)}/>
+                            
                             <strong>{idToName(item.radiant_team_id) || item.radiant_team_id}</strong> vs <strong>{idToName(item.dire_team_id) || item.dire_team_id}</strong>
-                            <img width="15%"src={idToPic(item.dire_team_id)}/>
+                            
                         </div>
                         <div>{item.radiant_score} : {item.dire_score}</div>
                         {/* <div>{item.duration}</div> */}

@@ -303,6 +303,15 @@ label {
   color:rgb(255, 255, 180)
 }
 
+.spanmatchwinner {
+  color:rgb(180, 239, 255)
+}
+
+.matchitem {
+  display:flex;
+  justify-content: space-around;
+}
+
 /* -----left right arrows on carousel----- */
 .ant-carousel .slick-prev,
 .ant-carousel .slick-prev:hover,

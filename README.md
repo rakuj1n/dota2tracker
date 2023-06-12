@@ -21,3 +21,6 @@ A tracking application for dota 2's Esports scene
 
 # Getting Started
 Visit https://dota2tracker.vercel.app/ and start using the features straight away!
+
+# Credits
+* https://www.freepik.com/author/starline for background pattern

@@ -14,6 +14,7 @@ A tracking application for dota 2's Esports scene
 * React
 
 # APIs Used
+* https://docs.opendota.com/#section/Introduction
 * https://ant.design/components/overview
 * https://recharts.org/en-US/
 * https://airtable.com/

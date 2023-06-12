@@ -78,12 +78,14 @@ useEffect(() => {
 },[])
 
   return (
-    <>
-    <nav className='navbar'>
-      <Link className='link' to="/">Home</Link>
-      <Link className='link' to="/meta">Meta</Link>
-      <Link className='link' to="/personaltracker/graph">Personal Tracker</Link>
-    </nav>
+    <main>
+    <header>
+      <nav className='navbar'>
+        <Link className='link' to="/">Home</Link>
+        <Link className='link' to="/meta">Meta</Link>
+        <Link className='link' to="/personaltracker/graph">Personal Tracker</Link>
+      </nav>
+    </header>
       <Routes>
         <Route path="/" element={<Home />}>
           <Route path='/leagues/:id' element={<ProMatches leaguesData={leaguesData} teamData={teamData}/>}/>
@@ -100,7 +102,7 @@ useEffect(() => {
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
-    </>
+    </main>
   )
 }
 

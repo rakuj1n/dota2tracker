@@ -1,16 +1,18 @@
 body {
-  background-color: #27374D;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
+
+  background-image: url('/bg_pattern.png');
+  background-size: cover;
+  background-repeat: repeat;
 }
 
 main {
   width: min(75ch, 100% - 2rem);
   margin-inline: auto;
   /* background-color: #025464; */
-  background-color: #27374D;
   /* color:#F8F1F1; */
   color:white;
   text-decoration: none;

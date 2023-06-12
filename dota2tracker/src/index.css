@@ -3,8 +3,8 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-
-  background-image: url('/bg_pattern.png');
+  background-color: #27374D;
+  /* background-image: url('/bg_pattern.png'); */
   background-size: cover;
   background-repeat: repeat;
 }

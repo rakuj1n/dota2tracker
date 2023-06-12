@@ -6,8 +6,8 @@ A tracking application for dota 2's Esports scene
 * Personal tracker where you can save games you played and track your win-loss ratio
 
 # Screenshot(s)
-![meta finder](dota2tracker/public/Meta Finder screen.png)
-![graph](dota2tracker/public/Personal tracker.png)
+![meta](./dota2tracker/public/meta.png)
+![graph](./dota2tracker/public/tracker.png)
 
 # Wireframes
 

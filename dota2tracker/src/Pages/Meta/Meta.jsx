@@ -56,7 +56,7 @@ export default function Meta() {
                 </form>
                 <form onSubmit={handleSubmitMatchup}>
                     <label>Search a Hero for its matchups: 
-                        <input placeholder="enchantress" className='inputfields' onChange={handleChangeMatchup} type="" value={data} name="matchup"></input>
+                        <input placeholder="enchantress" className='inputfields' onChange={handleChangeMatchup} type="" value={data} name="matchup" autoComplete="off"></input>
                     </label>
                     <Button htmlType="submit" ghost>Get Hero Matchups</Button>
                 </form>

@@ -92,7 +92,7 @@ export default function Edit() {
             { selectedItemData && !isLoading &&
             <form className='createnewform' onSubmit={handleSubmitEdit}>
                 <h3 style={{color:'#FFFFB4'}}>Edit Entry</h3>
-                <label>Hero Played: <input className='newforminput' name='heroplayed' onChange={handleChange} value={selectedItemData.fields.heroplayed} type="text" placeholder="enchantress"></input></label>
+                <label>Hero Played: <input className='newforminput' name='heroplayed' onChange={handleChange} value={selectedItemData.fields.heroplayed} type="text" placeholder="enchantress" autoComplete="off"></input></label>
                 { invalid && <small style={{color:'red'}}>Please check the entered hero name.</small>}
                 <label>Win/Loss: 
                     <select className='newforminput' name='winloss' onChange={handleChange} value={selectedItemData.fields.winloss}>

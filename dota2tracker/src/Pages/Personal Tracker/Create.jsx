@@ -70,7 +70,7 @@ export default function Create() {
         <>  
             <form className='createnewform' onSubmit={handleSubmitCreate}>
                 <h3 style={{color:'#FFFFB4'}}>Create a New Entry</h3>
-                <label>Hero Played: <input className='newforminput' name='heroplayed' onChange={handleChange} value={createFormData.heroplayed} type="text" placeholder="enchantress"></input></label>
+                <label>Hero Played: <input className='newforminput' name='heroplayed' onChange={handleChange} value={createFormData.heroplayed} type="text" placeholder="enchantress" autoComplete="off"></input></label>
                 { invalid && <small style={{color:'red'}}>Please check the entered hero name.</small>}
                 <label>Win/Loss: 
                     <select className='newforminput' name='winloss' onChange={handleChange} value={createFormData.winloss}>

@@ -30,6 +30,7 @@ export default function PersonalTracker() {
 
     function onDelete(id) {
         async function handleDelete() {
+            setIsLoading(true)
             const response = await fetch(`https://api.airtable.com/v0/appMTfwuwe3zlOU6o/matches/${id}`,{
                 method: "DELETE",
                 headers: { 
@@ -37,19 +38,19 @@ export default function PersonalTracker() {
                 }
             })
             const jsonData = await response.json()
+            setIsLoading(false)
+            //visual re-render
+            setSavedDataList(prev => { 
+                return {"records":(prev.records.filter((item) => {return item.id != id}))}
+                }
+            )
+            //graph trigger re-render
+            setTrigger(prev => !prev)
             console.log(jsonData)
+
         }
         handleDelete(id)
-        
-        //visual re-render
-        setSavedDataList(prev => { 
-            return {"records":(prev.records.filter((item) => {return item.id != id}))}
-            }
-        )
 
-        //graph trigger re-render
-        setTrigger(prev => !prev)
-        
     }
 
     return (

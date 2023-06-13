@@ -3,10 +3,12 @@ import searchDictionary from "../../searchDictionary"
 import { useNavigate, useOutletContext, Link } from "react-router-dom"
 import { Button } from "antd"
 import { CloseCircleFilled, CloseCircleOutlined, CloseOutlined } from "@ant-design/icons"
+import Loading from "../../Loading"
 
 
 export default function Create() {
     const {fetchSavedData} = useOutletContext()
+    const [isLoading,setIsLoading] = useState(false)
     const [invalid,setInvalid] = useState(false)
     const [createFormData,setCreateFormData] = useState({
         heroplayed: "", 
@@ -25,6 +27,7 @@ export default function Create() {
     }
 
     async function postCreate() {
+        setIsLoading(true)
         const response = await fetch(`https://api.airtable.com/v0/appMTfwuwe3zlOU6o/matches`,{
             method: 'POST',
             headers: { 
@@ -35,6 +38,8 @@ export default function Create() {
         })
         const jsonData = await response.json()
         fetchSavedData()
+        setIsLoading(false)
+        navigate(`/personaltracker/graph`)
     }
 
     const navigate = useNavigate()
@@ -49,7 +54,7 @@ export default function Create() {
             setInvalid(false)
             postCreate()
             // .then(fetchSavedData())
-            navigate(`/personaltracker/graph`)
+            // navigate(`/personaltracker/graph`)
         }
         
     }
@@ -68,7 +73,8 @@ export default function Create() {
 
     return (
         <>  
-            <form className='createnewform' onSubmit={handleSubmitCreate}>
+            {isLoading && <Loading />}
+            {!isLoading && <form className='createnewform' onSubmit={handleSubmitCreate}>
                 <h3 style={{color:'#FFFFB4'}}>Create a New Entry</h3>
                 <label>Hero Played: <input className='newforminput' name='heroplayed' onChange={handleChange} value={createFormData.heroplayed} type="text" placeholder="enchantress" autoComplete="off"></input></label>
                 { invalid && <small style={{color:'red'}}>Please check the entered hero name.</small>}
@@ -92,7 +98,7 @@ export default function Create() {
 
                 <Button style={{marginTop:'40px'}} className='newentrybutton' htmlType="submit" ghost>Create New Entry</Button>
                 <Link to='/personaltracker/graph'><Button style={{scale:'0.95'}} danger ghost>Discard Changes</Button></Link>
-            </form>
+            </form>}
         </>
     )
 }

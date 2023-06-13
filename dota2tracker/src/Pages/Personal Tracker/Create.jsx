@@ -93,7 +93,6 @@ export default function Create() {
                 <Button style={{marginTop:'40px'}} className='newentrybutton' htmlType="submit" ghost>Create New Entry</Button>
                 <Link to='/personaltracker/graph'><Button style={{scale:'0.85'}} danger ghost>Discard Changes</Button></Link>
             </form>
-            
         </>
     )
 }

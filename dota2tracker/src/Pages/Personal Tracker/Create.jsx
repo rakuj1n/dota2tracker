@@ -1,7 +1,9 @@
 import { useState } from "react"
 import searchDictionary from "../../searchDictionary"
-import { useNavigate, useOutletContext } from "react-router-dom"
+import { useNavigate, useOutletContext, Link } from "react-router-dom"
 import { Button } from "antd"
+import { CloseCircleFilled, CloseCircleOutlined, CloseOutlined } from "@ant-design/icons"
+
 
 export default function Create() {
     const {fetchSavedData} = useOutletContext()
@@ -62,8 +64,10 @@ export default function Create() {
         }
     }
 
+    // <div className="closecreate"><Link to='/personaltracker/graph'><CloseOutlined className="closecreatebutton"/></Link></div>
+
     return (
-        <>
+        <>  
             <form className='createnewform' onSubmit={handleSubmitCreate}>
                 <h3>Create a New Entry</h3>
                 <label>Hero Played: <input className='newforminput' name='heroplayed' onChange={handleChange} value={createFormData.heroplayed} type="text" placeholder="enchantress"></input></label>
@@ -86,8 +90,10 @@ export default function Create() {
                     </select>
                 </label>
 
-                <Button className='newentrybutton' htmlType="submit" ghost>Create New Entry</Button>
+                <Button style={{marginTop:'40px'}} className='newentrybutton' htmlType="submit" ghost>Create New Entry</Button>
+                <Link to='/personaltracker/graph'><Button style={{scale:'0.85'}} danger ghost>Discard Changes</Button></Link>
             </form>
+            
         </>
     )
 }

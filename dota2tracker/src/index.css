@@ -229,6 +229,29 @@ label {
   color:#526D82
 }
 
+/* .closecreate {
+  color: inherit;
+  position: fixed;
+  z-index: 1;
+  margin-top: -40px;
+  margin-left: 390px;
+} */
+
+/* .closecreatebutton { */
+  /* color:white; */
+  /* scale:1.7; */
+  /* filter: drop-shadow(1px 1px 3px rgba(179, 228, 255, 0.2)); */
+  /* position: fixed; */
+/* } */
+
+/* .closecreatebutton:hover {
+  color:#526D82
+} */
+
+.discardbutton {
+  color:red;
+}
+
 .space {
   height:40px;
 }
@@ -253,7 +276,8 @@ label {
 }
 
 .newforminput {
-  margin: 12px 0;
+  margin-top:12px;
+  /* margin: 12px 0; */
   padding: 5px;
   border-radius: 10px;
 }

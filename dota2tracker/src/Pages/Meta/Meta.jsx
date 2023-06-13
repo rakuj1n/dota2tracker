@@ -47,6 +47,11 @@ export default function Meta() {
         }
     }
 
+    function setValue(item) {
+        setData(item)
+        setFilteredData([])
+    }
+
     return (
         <>
             <h1>Meta Finder</h1>
@@ -66,7 +71,7 @@ export default function Meta() {
                     <label>Search a Hero for its matchups: 
                         <div className="searchbar">
                             <div className="searchinput"><input placeholder="enchantress" className='inputfields' onChange={handleChangeMatchup} type="" value={data} name="matchup" autoComplete="off"></input></div>
-                            { filteredData.length > 0 && <div className="results">{filteredData.map((item) => <div className="resultsitem">{item}</div>)}</div>}
+                            { filteredData.length > 0 && <div className="results">{filteredData.map((item) => <div onClick={() => setValue(item)} className="resultsitem">{item}</div>)}</div>}
                         </div>
                     </label>
                     <Button htmlType="submit" ghost>Get Hero Matchups</Button>

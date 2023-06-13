@@ -52,7 +52,7 @@ export default {
     '[Ll]eshrac$': '52',
     "[Nn]ature[']?s [Pp]rophet$": '53',
     '[Ll]ifestealer$': '54',
-    '[Dd]ark Seer$': '55',
+    '[Dd]ark [Ss]eer$': '55',
     '[Cc]linkz$': '56',
     '[oO]mniknight$': '57',
     '[Ee]nchantress$': '58',

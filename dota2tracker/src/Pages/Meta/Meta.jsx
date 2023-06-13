@@ -34,6 +34,7 @@ export default function Meta() {
     function handleSubmitMatchup(e) {
         e.preventDefault()
         let id = search()
+        setFilteredData([])
         navigate(`/meta/matchups/${id ? id : "NotFound"}`)
     }
 

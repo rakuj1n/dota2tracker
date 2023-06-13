@@ -46,6 +46,7 @@ export default function Edit() {
     }
 
     async function postEdit() {
+        setIsLoading(true)
         const response = await fetch(`https://api.airtable.com/v0/appMTfwuwe3zlOU6o/matches`,{
             method: 'PATCH',
             headers: { 
@@ -56,6 +57,8 @@ export default function Edit() {
         })
         const jsonData = await response.json()
         fetchSavedData()
+        setIsLoading(false)
+        navigate(`/personaltracker/graph`)
     }
 
     const navigate = useNavigate()
@@ -69,7 +72,7 @@ export default function Edit() {
             setInvalid(false)
             postEdit()
             // .then(fetchSavedData())
-            navigate(`/personaltracker/graph`)
+
         }
         
     }

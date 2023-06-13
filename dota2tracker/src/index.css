@@ -209,6 +209,40 @@ label {
   position:relative;
 }
 
+.saveddatalistitem:hover .edit {
+  display:flex;
+}
+
+.saveddatalistitem:hover > :not(.edit) {
+  display:none;
+}
+
+.edit {
+  display:none;
+  width: 183px;
+  height: 38px;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.editbutton {
+  opacity: 0.5;
+}
+
+.editbutton:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.delete {
+  opacity: 0.5;
+}
+
+.delete:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
 .outlet {
   margin: auto 0;
 }
@@ -260,16 +294,7 @@ label {
   height:40px;
 }
 
-.delete {
-  position:absolute;
-  opacity:0.15;
-  margin-top:10px;
-}
 
-.delete:hover {
-  opacity: 1;
-  cursor: pointer;
-}
 
 .noitems {
   text-align: center;

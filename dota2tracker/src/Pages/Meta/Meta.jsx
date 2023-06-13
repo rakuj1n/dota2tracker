@@ -2,9 +2,11 @@ import { useEffect, useState } from "react"
 import { Outlet, useNavigate } from "react-router-dom"
 import searchDictionary from "../../searchDictionary"
 import { Button } from 'antd'
+import herolist from "../../herolist"
 
 export default function Meta() {
 
+    const [filteredData,setFilteredData] = useState([])
     const [roleSelected,setRoleSelected] = useState(1)
     const [data,setData] = useState("")
     const navigate = useNavigate()
@@ -21,6 +23,9 @@ export default function Meta() {
 
     function handleChangeMatchup(e) {
         setData(e.target.value)
+        let newFilter = herolist.filter((item) => item.toLowerCase().startsWith(e.target.value.toLowerCase()))
+        console.log(newFilter)
+        setFilteredData(newFilter)
     }
 
     function handleSubmitMatchup(e) {
@@ -56,7 +61,10 @@ export default function Meta() {
                 </form>
                 <form onSubmit={handleSubmitMatchup}>
                     <label>Search a Hero for its matchups: 
-                        <input placeholder="enchantress" className='inputfields' onChange={handleChangeMatchup} type="" value={data} name="matchup" autoComplete="off"></input>
+                        <div className="searchbar">
+                            <div className="searchinput"><input placeholder="enchantress" className='inputfields' onChange={handleChangeMatchup} type="" value={data} name="matchup" autoComplete="off"></input></div>
+                            { filteredData.length > 0 && <div className="results">{filteredData.map((item) => <div className="resultsitem">{item}</div>)}</div>}
+                        </div>
                     </label>
                     <Button htmlType="submit" ghost>Get Hero Matchups</Button>
                 </form>

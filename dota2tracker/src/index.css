@@ -105,8 +105,7 @@ header {
   right: 0;
   height: 80px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-
-  z-index: 10;
+  z-index: 99;
 
   display: flex;
   justify-content: center;
@@ -146,6 +145,10 @@ label {
   margin: 17px 0;
   padding: 5px;
   border-radius: 10px;
+}
+
+.inputfields::placeholder {
+  color:rgba(128, 128, 128, 0.438);
 }
 
 .notfound {
@@ -294,8 +297,6 @@ label {
   height:40px;
 }
 
-
-
 .noitems {
   text-align: center;
 }
@@ -309,6 +310,10 @@ label {
   /* margin: 12px 0; */
   padding: 5px;
   border-radius: 10px;
+}
+
+.newforminput::placeholder {
+  color:rgba(128, 128, 128, 0.438);
 }
 
 .graph {
@@ -363,6 +368,38 @@ label {
 .matchitem {
   display:flex;
   justify-content: space-around;
+}
+
+.searchbar {
+  position:relative
+}
+
+.results {
+  height: auto;
+  width: 160px;
+  /* padding: 5px; */
+  top: 54px;
+  margin-left: 10px;
+  overflow: hidden;
+  overflow-y: auto;
+  position: absolute;
+  z-index: 50;
+  background-color: #526D82;
+  border-radius: 10px;
+}
+
+.results::-webkit-scrollbar {
+  display: none;
+}
+
+.resultsitem {
+  margin: 5px ;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.resultsitem:hover {
+  background-color:#27374D ;
 }
 
 /* -----left right arrows on carousel----- */

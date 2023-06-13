@@ -24,8 +24,11 @@ export default function Meta() {
     function handleChangeMatchup(e) {
         setData(e.target.value)
         let newFilter = herolist.filter((item) => item.toLowerCase().startsWith(e.target.value.toLowerCase()))
-        console.log(newFilter)
-        setFilteredData(newFilter)
+        if (e.target.value === "") {
+            setFilteredData([])
+        } else {
+            setFilteredData(newFilter)
+        }
     }
 
     function handleSubmitMatchup(e) {

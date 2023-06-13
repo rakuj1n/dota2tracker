@@ -52,7 +52,7 @@ export default function Graph() {
         <div className='graph'> 
         {isLoading && <Loading />}
         {!isLoading &&
-            <BarChart margin={{top: 0, right:0,bottom:0,left:0}} width={300} height={250} data={[{"name":"Wins","No. of Games":win ? win : 0},{"name":"Losses","No. of Games":loss ? loss : 0}]}>
+        <BarChart margin={{top: 0, right:0,bottom:0,left:0}} width={300} height={250} data={[{"name":"Wins","No. of Games":win ? win : 0},{"name":"Losses","No. of Games":loss ? loss : 0}]}>
             <CartesianGrid horizontal={false} vertical={false} />
             <XAxis tick={{ fill: '#DDE6ED' }} dataKey="name" />
             <YAxis tick={{ fill: '#DDE6ED' }} allowDecimals={false}/>

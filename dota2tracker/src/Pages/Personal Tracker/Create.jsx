@@ -69,7 +69,7 @@ export default function Create() {
     return (
         <>  
             <form className='createnewform' onSubmit={handleSubmitCreate}>
-                <h3>Create a New Entry</h3>
+                <h3 style={{color:'#FFFFB4'}}>Create a New Entry</h3>
                 <label>Hero Played: <input className='newforminput' name='heroplayed' onChange={handleChange} value={createFormData.heroplayed} type="text" placeholder="enchantress"></input></label>
                 { invalid && <small style={{color:'red'}}>Please check the entered hero name.</small>}
                 <label>Win/Loss: 
@@ -91,7 +91,7 @@ export default function Create() {
                 </label>
 
                 <Button style={{marginTop:'40px'}} className='newentrybutton' htmlType="submit" ghost>Create New Entry</Button>
-                <Link to='/personaltracker/graph'><Button style={{scale:'0.85'}} danger ghost>Discard Changes</Button></Link>
+                <Link to='/personaltracker/graph'><Button style={{scale:'0.95'}} danger ghost>Discard Changes</Button></Link>
             </form>
         </>
     )

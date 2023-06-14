@@ -409,6 +409,10 @@ label {
   color: #27374D;
 }
 
+.closelist:hover {
+  cursor: pointer;
+}
+
 /* -----left right arrows on carousel----- */
 .ant-carousel .slick-prev,
 .ant-carousel .slick-prev:hover,

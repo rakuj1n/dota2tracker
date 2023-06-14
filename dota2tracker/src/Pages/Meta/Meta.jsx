@@ -54,6 +54,10 @@ export default function Meta() {
         setFilteredData([])
     }
 
+    function handleClickCloseList() {
+        setFilteredData([])
+    }
+
     return (
         <>
             <h1>Meta Finder</h1>
@@ -73,7 +77,7 @@ export default function Meta() {
                     <label>Search a Hero for its matchups: 
                         <div className="searchbar">
                             <div className="searchinput"><input placeholder="enchantress" className='inputfields' onChange={handleChangeMatchup} type="" value={data} name="matchup" autoComplete="off"></input></div>
-                            <div className="closelist"><CloseOutlined /></div>
+                            { filteredData.length > 0 && <div onClick={handleClickCloseList} className="closelist"><CloseOutlined /></div>}
                             { filteredData.length > 0 && <div className="results">{filteredData.map((item) => <div onClick={() => setValue(item)} className="resultsitem">{item}</div>)}</div>}
                         </div>
                     </label>

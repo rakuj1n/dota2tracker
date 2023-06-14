@@ -402,6 +402,13 @@ label {
   background-color:#27374D ;
 }
 
+.closelist {
+  position: absolute;
+  margin-top: -40px;
+  margin-left: 160px;
+  color: #27374D;
+}
+
 /* -----left right arrows on carousel----- */
 .ant-carousel .slick-prev,
 .ant-carousel .slick-prev:hover,

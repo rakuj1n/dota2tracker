@@ -10,6 +10,7 @@ A tracking application for dota 2's Esports scene
 ![graph](./dota2tracker/public/tracker.png)
 
 # Wireframes
+![wrireframe](./dota2tracker/public/wireframe.png)
 
 # Technologies Used
 * HTML, CSS and Javascript

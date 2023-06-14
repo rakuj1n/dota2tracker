@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar } from 'recharts'
 import { useOutletContext } from "react-router-dom"
 import Loading from '../../Loading'
+import { InteractionOutlined } from '@ant-design/icons'
 
 
 
@@ -51,14 +52,16 @@ export default function Graph() {
     return (
         <div className='graph'> 
         {isLoading && <Loading />}
-        {!isLoading &&
-        <BarChart margin={{top: 0, right:0,bottom:0,left:0}} width={300} height={250} data={[{"name":"Wins","No. of Games":win ? win : 0},{"name":"Losses","No. of Games":loss ? loss : 0}]}>
-            <CartesianGrid horizontal={false} vertical={false} />
-            <XAxis tick={{ fill: '#DDE6ED' }} dataKey="name" />
-            <YAxis tick={{ fill: '#DDE6ED' }} allowDecimals={false}/>
-            <Tooltip />
-            <Bar dataKey="No. of Games" fill="#9DB2BF" />
-        </BarChart>}
+        {!isLoading && 
+        <> <div className='togglegraph'><InteractionOutlined /></div>
+            <BarChart margin={{top: 0, right:0,bottom:0,left:0}} width={300} height={250} data={[{"name":"Wins","No. of Games":win ? win : 0},{"name":"Losses","No. of Games":loss ? loss : 0}]}>
+                <CartesianGrid horizontal={false} vertical={false} />
+                <XAxis tick={{ fill: '#DDE6ED' }} dataKey="name" />
+                <YAxis tick={{ fill: '#DDE6ED' }} allowDecimals={false}/>
+                <Tooltip />
+                <Bar dataKey="No. of Games" fill="#9DB2BF" />
+            </BarChart>
+        </>}
         </div>
     )
 }

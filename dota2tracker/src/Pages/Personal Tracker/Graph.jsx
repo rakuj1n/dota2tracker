@@ -10,7 +10,7 @@ export default function Graph() {
     const {trigger} = useOutletContext()
     const [savedDataList,setSavedDataList] = useState()
     const [isLoading,setIsLoading] = useState(false)
-    const [toggle, setToggle] = useState(false)
+    const [toggle, setToggle] = useState(true)
 
     const [win, setWin] = useState(0)
     const [loss, setLoss] = useState(0)
